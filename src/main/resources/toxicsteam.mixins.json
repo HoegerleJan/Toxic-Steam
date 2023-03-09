@@ -4,9 +4,9 @@
   "package": "net.doulrion.toxicsteam.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "EntityMixin"
   ],
   "client": [
-    "ExampleMixin"
   ],
   "injectors": {
     "defaultRequire": 1
