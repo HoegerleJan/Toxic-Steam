@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "toxicsteam",
+  "version": "${version}",
+
+  "name": "Toxic Steam",
+  "description": "Mod for an Steampunk RP Project",
+  "authors": [
+    "Doulrion"
+  ],
+  "contact": {
+    "homepage": "https://twitter.com/doulrion_jan",
+    "sources": "https://github.com/HoegerleJan/toxicsteam"
+  },
+
+  "license": "MIT",
+  "icon": "assets/toxicsteam/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.doulrion.toxicsteam.ToxicSteam"
+    ]
+  },
+  "mixins": [
+    "toxicsteam.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.6",
+    "fabric": "*",
+    "minecraft": "~1.18.2",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
