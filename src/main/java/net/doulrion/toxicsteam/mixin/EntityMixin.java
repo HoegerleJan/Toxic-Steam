@@ -8,53 +8,46 @@ import net.minecraft.item.Items;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.world.biome.BiomeKeys;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(LivingEntity.class)
 public abstract class EntityMixin {
-    @Shadow protected abstract void playBlockFallSound();
 
     @Inject(at = @At(value = "TAIL"), method = "tick()V")
-    private void tick(CallbackInfo cb)
-    {
-        LivingEntity entity = (LivingEntity)(Object)this;
+    private void tick(CallbackInfo cb) {
+        LivingEntity entity = (LivingEntity) (Object) this;
 
         if (entity instanceof ServerPlayerEntity playerEntity) {
 
-            //var a = entity.getEntityWorld().getBiome(playerEntity.getBlockPos()).getKey().toString();
+            if (entity.hasStatusEffect(StatusEffects.POISON)) return;
+            if (!locationAppliesNetherPoison(playerEntity)) return;
+            if (!locationAppliesMushroomPoison(playerEntity)) return;
 
-            if(entity.getEntityWorld().getDimension().isUltrawarm() && !entity.hasStatusEffect(StatusEffects.POISON)
-                    && !armorSet(entity)) {
-
-                playerEntity.setStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 100, 1), playerEntity);
-            }
-
-            if(entity.getEntityWorld().getBiome(playerEntity.getBlockPos()).getKey().isPresent()) {
-                if(entity.getEntityWorld().getBiome(playerEntity.getBlockPos()).getKey().get().equals(BiomeKeys.MUSHROOM_FIELDS)
-                        && !entity.hasStatusEffect(StatusEffects.POISON) && !entity.getEquippedStack(EquipmentSlot.HEAD).isOf(Items.LEATHER_HELMET)) {
-
-                    playerEntity.setStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 100, 1), playerEntity);
-                }
-            }
+            playerEntity.setStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 100, 1), playerEntity);
         }
     }
 
-    private boolean armorSet(LivingEntity entity) {
+    private boolean fullArmorSetEquiped(LivingEntity entity) {
+        return entity.getEquippedStack(EquipmentSlot.HEAD).isOf(Items.LEATHER_HELMET)
+                && entity.getEquippedStack(EquipmentSlot.CHEST).isOf(Items.LEATHER_CHESTPLATE)
+                && entity.getEquippedStack(EquipmentSlot.LEGS).isOf(Items.LEATHER_LEGGINGS)
+                && entity.getEquippedStack(EquipmentSlot.FEET).isOf(Items.LEATHER_BOOTS);
+    }
 
-        boolean a = true;
+    private boolean headArmorEquiped(LivingEntity entity) {
+        return entity.getEquippedStack(EquipmentSlot.HEAD).isOf(Items.LEATHER_HELMET);
+    }
 
-        if(!entity.getEquippedStack(EquipmentSlot.HEAD).isOf(Items.LEATHER_HELMET)
-                ||!entity.getEquippedStack(EquipmentSlot.CHEST).isOf(Items.LEATHER_CHESTPLATE)
-                ||!entity.getEquippedStack(EquipmentSlot.LEGS).isOf(Items.LEATHER_LEGGINGS)
-                ||!entity.getEquippedStack(EquipmentSlot.FEET).isOf(Items.LEATHER_BOOTS)) {
+    private boolean locationAppliesNetherPoison(ServerPlayerEntity playerEntity) {
+        return playerEntity.getEntityWorld().getDimension().isUltrawarm() && !fullArmorSetEquiped(playerEntity);
+    }
 
-            a = false;
+    private boolean locationAppliesMushroomPoison(ServerPlayerEntity playerEntity) {
+        var playerBiomeKey = playerEntity.getEntityWorld().getBiome(playerEntity.getBlockPos()).getKey();
 
-        }
-
-        return a;
+        return playerBiomeKey.isPresent() && playerBiomeKey.get().equals(BiomeKeys.MUSHROOM_FIELDS)
+                && !headArmorEquiped(playerEntity);
     }
 }
