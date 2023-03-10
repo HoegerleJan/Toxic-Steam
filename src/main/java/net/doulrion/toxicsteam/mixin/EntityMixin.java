@@ -6,6 +6,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.Items;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.world.biome.BiomeKeys;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -25,6 +26,8 @@ public abstract class EntityMixin {
             if (!locationAppliesNetherPoison(playerEntity) && !locationAppliesMushroomPoison(playerEntity)) return;
 
             playerEntity.setStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 100, 1), playerEntity);
+
+            playerEntity.sendMessage(new TranslatableText("chat.toxicsteam.toxic_location"), true);
         }
     }
 
