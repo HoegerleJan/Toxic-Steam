@@ -22,8 +22,7 @@ public abstract class EntityMixin {
         if (entity instanceof ServerPlayerEntity playerEntity) {
 
             if (entity.hasStatusEffect(StatusEffects.POISON)) return;
-            if (!locationAppliesNetherPoison(playerEntity)) return;
-            if (!locationAppliesMushroomPoison(playerEntity)) return;
+            if (!locationAppliesNetherPoison(playerEntity) && !locationAppliesMushroomPoison(playerEntity)) return;
 
             playerEntity.setStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 100, 1), playerEntity);
         }
