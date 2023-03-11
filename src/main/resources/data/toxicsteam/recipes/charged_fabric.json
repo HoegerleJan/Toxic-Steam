@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#B#",
+    "BRB",
+    "#B#"
+  ],
+  "key": {
+    "#": {
+      "item": "toxicsteam:charged_string"
+    },
+    "R": {
+      "item": "toxicsteam:redstone_ingot"
+    },
+    "B": {
+      "item": "minecraft:black_wool"
+    }
+  },
+  "result": {
+    "item": "toxicsteam:charged_fabric"
+  }
+}

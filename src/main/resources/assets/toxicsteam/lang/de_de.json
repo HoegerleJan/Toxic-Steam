@@ -1,3 +1,14 @@
 {
+
+  "item.toxicsteam.redstone_ingot": "Redstonebarren",
+  "item.toxicsteam.charged_string": "Geladener Faden",
+  "item.toxicsteam.charged_fabric": "Geladener Stoff",
+  "item.toxicsteam.reinforced_charged_string": "Verstärkter geladener Faden",
+  "item.toxicsteam.reinforced_charged_fabric": "Verstärkter geladener Stoff",
+  "item.toxicsteam.filter": "Filter",
+  "item.toxicsteam.gas_mask": "Gasmaske",
+
+  "itemGroup.toxicsteam.toxicsteam": "Toxic Steam",
+
   "chat.toxicsteam.toxic_location": "§4[Schädliche Umgebung]§r Benutze Schutzausrüstung!"
 }

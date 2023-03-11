@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#R#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:string"
+    },
+    "R": {
+      "item": "toxicsteam:redstone_ingot"
+    }
+  },
+  "result": {
+    "item": "toxicsteam:charged_string",
+    "count": 4
+  }
+}

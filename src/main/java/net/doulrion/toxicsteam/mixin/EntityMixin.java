@@ -1,5 +1,6 @@
 package net.doulrion.toxicsteam.mixin;
 
+import net.doulrion.toxicsteam.item.ToxicSteamItems;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -28,6 +29,7 @@ public abstract class EntityMixin {
             playerEntity.setStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 100, 1), playerEntity);
 
             playerEntity.sendMessage(new TranslatableText("chat.toxicsteam.toxic_location"), true);
+
         }
     }
 
@@ -39,7 +41,7 @@ public abstract class EntityMixin {
     }
 
     private boolean headArmorEquiped(LivingEntity entity) {
-        return entity.getEquippedStack(EquipmentSlot.HEAD).isOf(Items.LEATHER_HELMET);
+        return entity.getEquippedStack(EquipmentSlot.HEAD).isOf(ToxicSteamItems.GAS_MASK);
     }
 
     private boolean locationAppliesNetherPoison(ServerPlayerEntity playerEntity) {

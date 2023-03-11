@@ -1,3 +1,14 @@
 {
+
+  "item.toxicsteam.redstone_ingot": "Redstone Ingot",
+  "item.toxicsteam.charged_string": "Charged String",
+  "item.toxicsteam.charged_fabric": "Chargde Fabric",
+  "item.toxicsteam.reinforced_charged_string": "Reinforced Charged String",
+  "item.toxicsteam.reinforced_charged_fabric": "Reinforced Charged Fabric",
+  "item.toxicsteam.filter": "Filter",
+  "item.toxicsteam.gas_mask": "Gas Mask",
+
+  "itemGroup.toxicsteam.toxicsteam": "Toxic Steam",
+
   "chat.toxicsteam.toxic_location": "§4[Toxic location]§r Use protective gear!"
 }

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "B#B",
+    "R#R"
+  ],
+  "key": {
+    "#": {
+      "item": "toxicsteam:charged_fabric"
+    },
+    "R": {
+      "item": "toxicsteam:charged_string"
+    },
+    "B": {
+      "item": "toxicsteam:filter"
+    }
+  },
+  "result": {
+    "item": "toxicsteam:gas_mask"
+  }
+}
