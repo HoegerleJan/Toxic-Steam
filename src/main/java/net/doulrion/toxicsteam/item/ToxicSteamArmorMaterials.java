@@ -12,7 +12,7 @@ import java.util.function.Supplier;
 
 public enum ToxicSteamArmorMaterials implements ArmorMaterial {
 
-    GAS_MASK("gas_mask", 20, new int[]{2, 3, 3, 2}, 25, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER,
+    PROTECTIVE_FIBER("protective_fiber", 16, new int[]{2, 3, 3, 2}, 25, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {return Ingredient.ofItems(new ItemConvertible[]{ToxicSteamItems.CHARGED_FABRIC});
     });
 
