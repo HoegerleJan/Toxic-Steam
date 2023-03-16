@@ -34,7 +34,7 @@ public class ProtectiveSuitItem extends ToxicSteamArmorItem implements IAnimatab
      */
     private <P extends IAnimatable> PlayState predicate(AnimationEvent<P> event) {
         LivingEntity livingEntity = event.getExtraDataOfType(LivingEntity.class).get(0);
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("idle"));
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.model.idle"));
 
         if (livingEntity instanceof ArmorStandEntity) {
             return PlayState.CONTINUE;

@@ -30,9 +30,8 @@ public class ToxicSteamItems {
 
 
 
-    //TODO: add 3D Models and animations (at least idle)
-    public static final Item PROTECTIVE_GAS_MASK = registerItem("protective_gas_mask",        //FIXME: use ProtectiveSuitItem() instead
-            new ArmorItem(ToxicSteamArmorMaterials.PROTECTIVE_FIBER, EquipmentSlot.HEAD,
+    public static final Item PROTECTIVE_GAS_MASK = registerItem("protective_gas_mask",        //FIXME: change item (in hand) texture
+            new ProtectiveSuitItem(ToxicSteamArmorMaterials.PROTECTIVE_FIBER, EquipmentSlot.HEAD,
                     new FabricItemSettings().group(ToxicSteamItemGroup.TOXIC_STEAM)));
 
     public static final Item PROTECTIVE_CHESTPLATE = registerItem("protective_chestplate",
