@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "net.doulrion.toxicsteam.ToxicSteam"
+    ],
+    "client": [
+      "net.doulrion.toxicsteam.ToxicSteamClient"
     ]
   },
   "mixins": [

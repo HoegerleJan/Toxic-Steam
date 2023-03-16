@@ -34,14 +34,14 @@ public abstract class EntityMixin {
     }
 
     private boolean fullArmorSetEquiped(LivingEntity entity) {
-        return entity.getEquippedStack(EquipmentSlot.HEAD).isOf(Items.LEATHER_HELMET)
-                && entity.getEquippedStack(EquipmentSlot.CHEST).isOf(Items.LEATHER_CHESTPLATE)
-                && entity.getEquippedStack(EquipmentSlot.LEGS).isOf(Items.LEATHER_LEGGINGS)
-                && entity.getEquippedStack(EquipmentSlot.FEET).isOf(Items.LEATHER_BOOTS);
+        return entity.getEquippedStack(EquipmentSlot.HEAD).isOf(ToxicSteamItems.PROTECTIVE_GAS_MASK)
+                && entity.getEquippedStack(EquipmentSlot.CHEST).isOf(ToxicSteamItems.PROTECTIVE_CHESTPLATE)
+                && entity.getEquippedStack(EquipmentSlot.LEGS).isOf(ToxicSteamItems.PROTECTIVE_LEGGINGS)
+                && entity.getEquippedStack(EquipmentSlot.FEET).isOf(ToxicSteamItems.PROTECTIVE_BOOTS);
     }
 
     private boolean headArmorEquiped(LivingEntity entity) {
-        return entity.getEquippedStack(EquipmentSlot.HEAD).isOf(ToxicSteamItems.GAS_MASK);
+        return entity.getEquippedStack(EquipmentSlot.HEAD).isOf(ToxicSteamItems.PROTECTIVE_GAS_MASK);
     }
 
     private boolean locationAppliesNetherPoison(ServerPlayerEntity playerEntity) {
