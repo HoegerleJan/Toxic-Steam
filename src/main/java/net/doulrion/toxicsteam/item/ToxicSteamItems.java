@@ -2,6 +2,8 @@ package net.doulrion.toxicsteam.item;
 
 import net.doulrion.toxicsteam.ToxicSteam;
 import net.doulrion.toxicsteam.item.custom.ProtectiveSuitItem;
+import net.doulrion.toxicsteam.item.custom.ToxicSteamBandageItem;
+import net.doulrion.toxicsteam.item.custom.ToxicSteamPlasterItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorItem;
@@ -25,7 +27,7 @@ public class ToxicSteamItems {
     public static final Item REINFORCED_CHARGED_FABRIC = registerItem("reinforced_charged_fabric", //TODO: no recipe
             new Item(new FabricItemSettings().group(ToxicSteamItemGroup.TOXIC_STEAM)));
 
-    public static final Item FILTER = registerItem("filter",
+    public static final Item FILTER = registerItem("filter",                                    //FIXME: change item (in hand) texture
             new Item(new FabricItemSettings().group(ToxicSteamItemGroup.TOXIC_STEAM)));
 
 
@@ -46,7 +48,11 @@ public class ToxicSteamItems {
             new ProtectiveSuitItem(ToxicSteamArmorMaterials.PROTECTIVE_FIBER, EquipmentSlot.FEET,
                     new FabricItemSettings().group(ToxicSteamItemGroup.TOXIC_STEAM)));
 
+    public static final Item BANDAGE = registerItem("bandage",
+            new ToxicSteamBandageItem(new FabricItemSettings().group(ToxicSteamItemGroup.TOXIC_STEAM)));
 
+    public static final Item PLASTER = registerItem("plaster",
+            new ToxicSteamPlasterItem(new FabricItemSettings().group(ToxicSteamItemGroup.TOXIC_STEAM)));
 
     private static Item registerItem(String name, Item item) {
 

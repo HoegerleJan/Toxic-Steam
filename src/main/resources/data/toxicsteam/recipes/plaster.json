@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#R#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:string"
+    },
+    "R": {
+      "item": "minecraft:white_wool"
+    }
+  },
+  "result": {
+    "item": "toxicsteam:plaster",
+    "count": 2
+  }
+}
