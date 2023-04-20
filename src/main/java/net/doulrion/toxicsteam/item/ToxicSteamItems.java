@@ -2,11 +2,10 @@ package net.doulrion.toxicsteam.item;
 
 import net.doulrion.toxicsteam.ToxicSteam;
 import net.doulrion.toxicsteam.item.custom.ProtectiveSuitItem;
-import net.doulrion.toxicsteam.item.custom.ToxicSteamBandageItem;
-import net.doulrion.toxicsteam.item.custom.ToxicSteamPlasterItem;
+import net.doulrion.toxicsteam.item.custom.ToxicSteamHealingItem;
+import net.doulrion.toxicsteam.util.HealingItemValue;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -31,7 +30,6 @@ public class ToxicSteamItems {
             new Item(new FabricItemSettings().group(ToxicSteamItemGroup.TOXIC_STEAM)));
 
 
-
     public static final Item PROTECTIVE_GAS_MASK = registerItem("protective_gas_mask",        //FIXME: change item (in hand) texture
             new ProtectiveSuitItem(ToxicSteamArmorMaterials.PROTECTIVE_FIBER, EquipmentSlot.HEAD,
                     new FabricItemSettings().group(ToxicSteamItemGroup.TOXIC_STEAM)));
@@ -47,12 +45,12 @@ public class ToxicSteamItems {
     public static final Item PROTECTIVE_BOOTS = registerItem("protective_boots",
             new ProtectiveSuitItem(ToxicSteamArmorMaterials.PROTECTIVE_FIBER, EquipmentSlot.FEET,
                     new FabricItemSettings().group(ToxicSteamItemGroup.TOXIC_STEAM)));
-
-    public static final Item BANDAGE = registerItem("bandage",
-            new ToxicSteamBandageItem(new FabricItemSettings().group(ToxicSteamItemGroup.TOXIC_STEAM)));
-
     public static final Item PLASTER = registerItem("plaster",
-            new ToxicSteamPlasterItem(new FabricItemSettings().group(ToxicSteamItemGroup.TOXIC_STEAM)));
+            new ToxicSteamHealingItem(new FabricItemSettings().group(ToxicSteamItemGroup.TOXIC_STEAM).maxCount(3),
+                    HealingItemValue.WEAK));
+    public static final Item BANDAGE = registerItem("bandage",
+            new ToxicSteamHealingItem(new FabricItemSettings().group(ToxicSteamItemGroup.TOXIC_STEAM).maxCount(1),
+                    HealingItemValue.MEDIUM));
 
     private static Item registerItem(String name, Item item) {
 
