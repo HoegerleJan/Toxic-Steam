@@ -1,6 +1,8 @@
 package net.doulrion.toxicsteam.item.custom;
 
 import net.doulrion.toxicsteam.util.HealingItemValue;
+import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.item.Item;
 
@@ -10,10 +12,16 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class ToxicSteamHealingItem extends Item{
     private final HealingItemValue level;
@@ -25,7 +33,7 @@ public class ToxicSteamHealingItem extends Item{
 
     @Override
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
-        if(!user.isSneaking() || !(entity instanceof ServerPlayerEntity)) {
+        if(user.isSneaking() || !(entity instanceof ServerPlayerEntity)) {
             return ActionResult.PASS;
         }
 
@@ -39,7 +47,7 @@ public class ToxicSteamHealingItem extends Item{
                 break;
             case STRONG:
                 entity.addStatusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1, 2), user);
-                entity.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 100, 0), user);
+                entity.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 120, 0), user);
                 entity.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 100, 0), user);
                 entity.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 150, 1), user);
                 break;
@@ -52,7 +60,7 @@ public class ToxicSteamHealingItem extends Item{
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack stack =  user.getStackInHand(hand);
-        if (user.isSneaking() || !(user instanceof ServerPlayerEntity)) {
+        if (!user.isSneaking() || !(user instanceof ServerPlayerEntity)) {
             return TypedActionResult.pass(stack);
         }
 
@@ -66,7 +74,7 @@ public class ToxicSteamHealingItem extends Item{
                 break;
             case STRONG:
                 user.addStatusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1, 2), user);
-                user.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 100, 0), user);
+                user.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 120, 0), user);
                 user.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 100, 0), user);
                 user.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 150, 1), user);
                 break;
@@ -74,6 +82,26 @@ public class ToxicSteamHealingItem extends Item{
 
         stack.decrement(1);
         return TypedActionResult.success(stack);
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+
+        if(Screen.hasShiftDown()) {
+
+            tooltip.add(new TranslatableText("item.toxicsteam.healitem.tooltip"));
+            tooltip.add(new LiteralText(""));
+            tooltip.add(new TranslatableText("item.toxicsteam.healitem.tooltip.shift"));
+            tooltip.add(new TranslatableText("item.toxicsteam.healitem.tooltip.shift_2"));
+
+        } else {
+
+            tooltip.add(new TranslatableText("item.toxicsteam.healitem.tooltip"));
+
+        }
+
+
+        super.appendTooltip(stack, world, tooltip, context);
     }
 }
 

@@ -10,6 +10,10 @@
   "item.toxicsteam.plaster": "Pflaster",
   "item.toxicsteam.bandage": "Verband",
 
+  "item.toxicsteam.healitem.tooltip": "Heilmittel",
+  "item.toxicsteam.healitem.tooltip.shift": "§a[Rechtsklick] §fum jemanden zu heilen.",
+  "item.toxicsteam.healitem.tooltip.shift_2": "§a[Shift] §fum dich selbst zu heilen.",
+
   "itemGroup.toxicsteam.toxicsteam": "Toxic Steam",
 
   "chat.toxicsteam.toxic_location": "§4[Schädliche Umgebung]§r Benutze Schutzausrüstung!"

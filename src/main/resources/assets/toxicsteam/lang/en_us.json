@@ -10,6 +10,10 @@
   "item.toxicsteam.plaster": "Plaster",
   "item.toxicsteam.bandage": "Bandage",
 
+  "item.toxicsteam.healitem.tooltip": "Healing Item",
+  "item.toxicsteam.healitem.tooltip.shift": "§a[Right-Click] §f to heal someone.",
+  "item.toxicsteam.healitem.tooltip.shift_2": "§a[Shift] §fto use it on yourself.",
+
   "itemGroup.toxicsteam.toxicsteam": "Toxic Steam",
 
   "chat.toxicsteam.toxic_location": "§4[Toxic location]§r Use protective gear!"
