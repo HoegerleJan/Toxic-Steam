@@ -22,7 +22,7 @@ public abstract class EntityMixin {
         LivingEntity entity = (LivingEntity) (Object) this;
 
         if (entity instanceof ServerPlayerEntity playerEntity) {
-
+            if (playerEntity.isCreative() || playerEntity.isSpectator()) return;
             if (entity.hasStatusEffect(StatusEffects.POISON)) return;
             if (!locationAppliesNetherPoison(playerEntity) && !locationAppliesMushroomPoison(playerEntity)) return;
 
