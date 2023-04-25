@@ -11,7 +11,7 @@
   "item.toxicsteam.bandage": "Bandage",
 
   "item.toxicsteam.healitem.tooltip": "Healing Item",
-  "item.toxicsteam.healitem.tooltip.shift": "§a[Right-Click] §f to heal someone.",
+  "item.toxicsteam.healitem.tooltip.shift": "§a[Right-Click] §fto heal someone.",
   "item.toxicsteam.healitem.tooltip.shift_2": "§a[Shift] §fto use it on yourself.",
 
   "itemGroup.toxicsteam.toxicsteam": "Toxic Steam",
