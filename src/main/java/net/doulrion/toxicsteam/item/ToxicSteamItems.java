@@ -52,6 +52,9 @@ public class ToxicSteamItems {
             new ToxicSteamHealingItem(new FabricItemSettings().group(ToxicSteamItemGroup.TOXIC_STEAM).maxCount(1),
                     HealingItemValue.MEDIUM));
 
+    public static final Item ROTTEN_LEATHER = registerItem("rotten_leather",
+            new Item(new FabricItemSettings().group(ToxicSteamItemGroup.TOXIC_STEAM)));
+
     private static Item registerItem(String name, Item item) {
 
         return Registry.register(Registry.ITEM, new Identifier(ToxicSteam.MOD_ID, name), item);
